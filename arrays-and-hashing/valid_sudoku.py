@@ -1,7 +1,7 @@
 """
 Valid Sudoku · Medium · Arrays & hashing
 Patterns: Hash maps & sets
-Solved in the Lab on 2026-11-27 · 36 min · accepted 161/161
+Solved in the Lab on 2026-11-27 · 1 min · accepted 161/161
 """
 
 from collections import defaultdict
@@ -15,16 +15,14 @@ class Solution:
                 if board[i][j] == ".":
                     continue
                 ri = int(board[i][j])
-                cj = int(board[i][j])
-                bij = int(board[i][j])
-                if cj in c[j]:
+                if ri in c[j]:
                     return False
                 elif ri in r[i]:
                     return False
-                elif bij in b[(i//3)*3+(j//3)]:
+                elif ri in b[(i//3)*3+(j//3)]:
                     return False
                 else:
-                    c[j].add(cj) 
+                    c[j].add(ri) 
                     r[i].add(ri)
-                    b[(i//3)*3+(j//3)].add(bij)
+                    b[(i//3)*3+(j//3)].add(ri)
         return True
